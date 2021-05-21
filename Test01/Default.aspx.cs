@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Web.UI;
-using Codaxy.WkHtmlToPdf;
 
 namespace Test01
 {
