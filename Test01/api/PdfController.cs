@@ -6,10 +6,16 @@ namespace Test01.api
 {
     public class PdfController : ApiController
     {
+        //public actionre Get(string key)
+        //{
+
+        //}
+        
+        [HttpPost]
         public Resultado Post(string url)
         {
-            string directorio = $"C:\\PdfGen\\{DateTime.Now:yyyy-MM-dd}";
-            string pdfBase64 = $"{directorio}\\{Guid.NewGuid()}.pdf";
+            string directorio = $"D:\\PdfGen\\{DateTime.Now:yyyy-MM-dd}";
+            string key = $"{Guid.NewGuid()}";
             try
             {
                 // Validamosdirectorio
@@ -25,14 +31,14 @@ namespace Test01.api
 
                 }, new PdfOutput
                 {
-                    OutputFilePath = pdfBase64
+                    OutputFilePath = $"{directorio}\\{key}.pdf"
                 });
 
                 // Pasamso a base64
-                byte[] bytes = File.ReadAllBytes(pdfBase64);
-                pdfBase64 = Convert.ToBase64String(bytes);
+                //byte[] bytes = File.ReadAllBytes(pdfBase64);
+                //pdfBase64 = Convert.ToBase64String(bytes);
 
-                return Resultado.Si(pdfBase64);
+                return Resultado.Si(key);
             }
             catch (Exception ex)
             {
