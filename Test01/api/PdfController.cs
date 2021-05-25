@@ -6,11 +6,21 @@ namespace Test01.api
 {
     public class PdfController : ApiController
     {
-        //public actionre Get(string key)
-        //{
+        [HttpGet]
+        public Resultado Get(string key)
+        {
+            try
+            {
+                string directorio = $"D:\\PdfGen\\{DateTime.Now:yyyy-MM-dd}";
+                byte[] bytes01 = File.ReadAllBytes($"{directorio}\\{key}.pdf");
+                return Resultado.Si(Convert.ToBase64String(bytes01));
+            }
+            catch (Exception ex)
+            {
+                return Resultado.Si($"Ah ocurrido un erro; {ex.Message}");
+            }
+        }
 
-        //}
-        
         [HttpPost]
         public Resultado Post(string url)
         {
