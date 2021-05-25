@@ -82,7 +82,6 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="api\Pdf.cs" />
     <Compile Include="api\PdfController.cs" />
     <Compile Include="api\Resultado.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />

@@ -7,26 +7,33 @@ namespace Test01
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                DateTime a = DateTime.Now;
-                PdfConvert.ConvertHtmlToPdf(new PdfDocument
-                {
-                    Url = "https://github.com/"
+            //    string localFile = $"D:\\pdf\\{Guid.NewGuid()}.pdf";
+            //    try
+            //    {
+            //        DateTime a = DateTime.Now;
+            //        PdfConvert.ConvertHtmlToPdf(new PdfDocument
+            //        {
+            //            Url = "https://www.google.com.ve/"
 
-                }, new PdfOutput
-                {
-                    OutputFilePath = $"D:\\pdf\\{Guid.NewGuid()}.pdf"
-                });
-                DateTime b = DateTime.Now;
+            //        }, new PdfOutput
+            //        {
+            //            OutputFilePath = localFile
+            //        });
+            //        DateTime b = DateTime.Now;
 
-                var diferencia = b - a;
-                Label1.Text = $"{diferencia.TotalMilliseconds:n2}";
-            }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
+            //        var diferencia = b - a;
+            //        Label1.Text = $"{diferencia.TotalMilliseconds:n2}";
+
+            //        byte[] bytes01 = File.ReadAllBytes(localFile);
+            //        var stringBase64Serialize = Convert.ToBase64String(bytes01);
+
+            //        byte[] bytes02 = Convert.FromBase64String(stringBase64Serialize);
+            //        File.WriteAllBytes(@"D:\asdasdasdasdasdasdasasdasd.pdf", bytes02);
+            //    }
+            //    catch (Exception exception)
+            //    {
+            //        Console.WriteLine(exception);
+            //    }
         }
     }
 }
