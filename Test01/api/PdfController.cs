@@ -22,7 +22,7 @@ namespace Test01.api
         }
 
         [HttpPost]
-        public Resultado Post(string url)
+        public Resultado Post(string urlDestino)
         {
             string directorio = $"D:\\PdfGen\\{DateTime.Now:yyyy-MM-dd}";
             string key = $"{Guid.NewGuid()}";
@@ -37,7 +37,7 @@ namespace Test01.api
                 // Convertimos
                 PdfConvert.ConvertHtmlToPdf(new PdfDocument
                 {
-                    Url = url
+                    Url = urlDestino
 
                 }, new PdfOutput
                 {
@@ -45,10 +45,8 @@ namespace Test01.api
                 });
 
                 // Pasamso a base64
-                //byte[] bytes = File.ReadAllBytes(pdfBase64);
-                //pdfBase64 = Convert.ToBase64String(bytes);
-
-                return Resultado.Si(key);
+                byte[] bytes = File.ReadAllBytes($"{directorio}\\{key}.pdf");
+                return Resultado.Si(Convert.ToBase64String(bytes));
             }
             catch (Exception ex)
             {
